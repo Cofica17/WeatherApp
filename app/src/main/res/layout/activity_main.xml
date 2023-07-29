@@ -7,9 +7,10 @@
     tools:context=".MainActivity">
 
    <include
-       android:layout_height="match_parent"
+       android:id="@+id/include"
+       layout="@layout/background"
        android:layout_width="match_parent"
-       layout="@layout/background"/>
+       android:layout_height="match_parent" />
 
    <include
        layout="@layout/weather_forecast_home"
@@ -19,5 +20,29 @@
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.0"
        app:layout_constraintStart_toStartOf="parent" />
+
+   <TextView
+       android:id="@+id/location_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="TextView"
+       android:textSize="50dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.497"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="@+id/include"
+       app:layout_constraintVertical_bias="0.295" />
+
+   <TextView
+       android:id="@+id/temp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="TextView"
+       android:textSize="50dp"
+       app:layout_constraintBottom_toTopOf="@+id/location_name"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
