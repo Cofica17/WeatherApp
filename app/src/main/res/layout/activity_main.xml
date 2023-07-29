@@ -10,9 +10,12 @@
        android:id="@+id/include"
        layout="@layout/background"
        android:layout_width="match_parent"
-       android:layout_height="match_parent" />
+       android:layout_height="match_parent"
+       tools:layout_editor_absoluteX="0dp"
+       tools:layout_editor_absoluteY="0dp" />
 
    <include
+       android:id="@+id/include2"
        layout="@layout/weather_forecast_home"
        android:layout_width="412dp"
        android:layout_height="248dp"
@@ -25,24 +28,68 @@
        android:id="@+id/location_name"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="TextView"
-       android:textSize="50dp"
-       app:layout_constraintBottom_toBottomOf="parent"
+       android:layout_marginTop="100dp"
+       android:text="Zagreb"
+       android:textSize="34sp"
+       android:textColor="#fff"
+       app:layout_constraintBottom_toTopOf="@+id/temp"
        app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.497"
+       app:layout_constraintHorizontal_bias="0.498"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="@+id/include"
-       app:layout_constraintVertical_bias="0.295" />
+       app:layout_constraintTop_toTopOf="@+id/include" />
 
    <TextView
        android:id="@+id/temp"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="TextView"
-       android:textSize="50dp"
-       app:layout_constraintBottom_toTopOf="@+id/location_name"
+       android:text="19°"
+       android:textSize="80sp"
+       android:textColor="#fff"
+       app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.498"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent" />
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.233" />
+
+   <TextView
+       android:id="@+id/description"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="8dp"
+       android:text="mostly clear"
+       android:textColor="#ebebf5"
+       android:textSize="18sp"
+       android:textAllCaps="true"
+       app:layout_constraintEnd_toEndOf="@+id/temp"
+       app:layout_constraintHorizontal_bias="0.498"
+       app:layout_constraintStart_toStartOf="@+id/temp"
+       app:layout_constraintTop_toBottomOf="@+id/temp" />
+
+   <TextView
+       android:id="@+id/high_temp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="4dp"
+       android:text="H:24°"
+       android:textColor="#fff"
+       android:textSize="18sp"
+       android:textStyle="bold"
+       app:layout_constraintEnd_toStartOf="@+id/low_temp"
+       app:layout_constraintHorizontal_bias="0.0"
+       app:layout_constraintStart_toStartOf="@+id/description"
+       app:layout_constraintTop_toBottomOf="@+id/description" />
+
+   <TextView
+       android:id="@+id/low_temp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="4dp"
+       android:text="L:18°"
+       android:textColor="#fff"
+       android:textSize="18sp"
+       android:textStyle="bold"
+       app:layout_constraintEnd_toEndOf="@+id/description"
+       app:layout_constraintTop_toBottomOf="@+id/description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
