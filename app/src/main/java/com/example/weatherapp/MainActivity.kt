@@ -1,9 +1,12 @@
 package com.example.weatherapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.weatherapp.classes.WeatherInfo
+import com.example.weatherapp.classes.WeatherInfoAdapter
 import com.example.weatherapp.httpdata.WeatherData
 import com.example.weatherapp.interfaces.WeatherApi
 import com.example.weatherapp.objects.RetrofitHelper
@@ -15,6 +18,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val recyclerview = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerview.layoutManager = LinearLayoutManager(this)
+        val data = ArrayList<WeatherInfo>()
+        for (i in 1..20) {
+            data.add(WeatherInfo("test", i))
+        }
+        val adapter = WeatherInfoAdapter(data)
+        recyclerview.adapter = adapter
+        val horizontalLayoutManagaer = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+        recyclerview.setLayoutManager(horizontalLayoutManagaer)
 
         val weatherApi = RetrofitHelper.getInstance().create(WeatherApi::class.java)
         GlobalScope.launch {
